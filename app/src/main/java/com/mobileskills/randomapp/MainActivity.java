@@ -1,18 +1,15 @@
 package com.mobileskills.randomapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
      * */
 
     ListView myListView;
-    String[] numbers = {};
+    ArrayList numbers = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +39,9 @@ public class MainActivity extends AppCompatActivity {
         numberListBtn.setOnClickListener(new View.OnClickListener() { // button to show a list of numbers
             @Override
             public void onClick(View v) {
-                Resources res = getResources(); // get the resources from the app
-                myListView = (ListView) findViewById(R.id.myListView); // get the list view from the layout
-                numbers = res.getStringArray(R.array.numbers);// get the numbers from the array
-                System.out.println(numbers.toString());
-                ArrayAdapter<CharSequence> aa = new ArrayAdapter<CharSequence>(getApplicationContext(), android.R.layout.activity_list_item, numbers);
-                myListView.setAdapter(aa);
-                Intent startIntent = new Intent(getApplicationContext(), numberListView.class);
-                startIntent.putExtra("com.mobileskills.randomapp.numbers", numbers);
-                System.out.println("se ejecuto el intent");
-                startActivity(startIntent);
+                Resources res = getResources();
+                Intent numberList = new Intent(getApplicationContext(), numberListView.class);
+                startActivity(numberList);
             }
         });
     }
