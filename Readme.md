@@ -15,4 +15,4 @@
 - Empty minor number field (left) and complete major number field (right): Numbers between 0 and entered major number.
 - Minor number field (left) complete and major number empty (right): Numbers between minor number and 0.
 - Both fields complete: Number between both numbers
-
+- To view the numbers in the list, go to the main view and then click on the view list button.
